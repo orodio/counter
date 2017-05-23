@@ -30,7 +30,7 @@ updateCounterCount :: (Id, Count) -> Response { counter: Counter }
 updateCounterTitle :: (Id, Title) -> Response { counter: Counter }
 deleteCounter      :: Id -> Response { counter: Counter }
 
-type Stream a = Observable a
+Stream a :: Observable a
 
 counters$ :: () -> Stream { counters: [Counter] }
 counter$  :: id -> Stream { counter: Counter }
