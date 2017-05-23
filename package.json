@@ -1,6 +1,6 @@
 {
   "name": "@orodio/counter",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "orodio does counter api",
   "main": "lib/index.js",
   "repository": "https://github.com/orodio/counter",
