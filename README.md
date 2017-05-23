@@ -1,25 +1,39 @@
-# `@orodio/uuid`
-
-[![Build Status](https://travis-ci.org/orodio/uuid.svg?branch=master)](https://travis-ci.org/orodio/uuid)
+# `@orodio/counter`
 
 ### Install
 
 ```
-yarn add @orodio/uuid
+yarn add @orodio/counter
 ```
 
-### Use
-
+### Types
 ```
-import uuid from "@orodio/uuid"
+Id    :: String
+Title :: String
+Count :: Number
+Date  :: String
 
-const a = uuid() // xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-const b = uuid() // xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Counter :: {
+  id:        Id,
+  title:     Title,
+  count:     Count,
+  createdAt: Date,
+  updatedAt: Date,
+}
 
-a === b // false
+Response a :: Promise a
 
-// where x = [0-9a-z]
+counters           :: () -> Response { counters: [Counter] }
+counter            :: Id -> Response { counter: Counter }
+createCounter      :: { title: Title, count?: Count } -> Response { counter: Counter }
+updateCounterCount :: (Id, Count) -> Response { counter: Counter }
+updateCounterTitle :: (Id, Title) -> Response { counter: Counter }
+deleteCounter      :: Id -> Response { counter: Counter }
 
+type Stream a = Observable a
+
+counters$ :: () -> Stream { counters: [Counter] }
+counter$  :: id -> Stream { counter: Counter }
 ```
 
 ### Dev
