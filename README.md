@@ -26,9 +26,11 @@ Response a :: Promise a
 counters           :: () -> Response { counters: [Counter] }
 counter            :: Id -> Response { counter: Counter }
 createCounter      :: { title: Title, count?: Count } -> Response { counter: Counter }
-updateCounterCount :: (Id, Count) -> Response { counter: Counter }
 updateCounterTitle :: (Id, Title) -> Response { counter: Counter }
-deleteCounter      :: Id -> Response { counter: Counter }
+updateCounterCount :: (Id, Count) -> Response { counter: Counter }
+decCounter         :: Id -> Response { counter: Counter }
+incCounter         :: Id -> Response { counter: Counter }
+delCounter         :: Id -> Response { counter: Counter }
 
 Stream a :: Observable a
 

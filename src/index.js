@@ -44,11 +44,17 @@ export const counter$ = id =>
 export const createCounter = ({ title, count = 0 }) =>
   FETCH(`mutation{counter:createCounter(count:${ count },title:"${ title }"){${ COUNTER }}}`)
 
-export const updateCounterCount = (id, count) =>
-  FETCH(`mutation{counter:updateCounter(id:"${ id }",count:${ count }){${ COUNTER }}}`)
-
 export const updateCounterTitle = (id, title) =>
   FETCH(`mutation{counter:updateCounter(id:"${ id }",title:"${ title }"){${ COUNTER }}}`)
 
-export const deleteCounter = id =>
+export const updateCounterCount = (id, count) =>
+  FETCH(`mutation{counter:updateCounter(id:"${ id }",count:${ count }){${ COUNTER }}}`)
+
+export const incCounter = id =>
+  counter(id).then(({ counter }) => updateCounterCount(id, counter.count + 1))
+
+export const decCounter = id =>
+  counter(id).then(({ counter }) => updateCounterCount(id, counter.count - 1))
+
+export const delCounter = id =>
   FETCH(`mutation{counter:deleteCounter(id:"${ id }"){${ COUNTER }}}`)
